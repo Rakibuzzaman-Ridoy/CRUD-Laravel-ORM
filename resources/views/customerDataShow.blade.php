@@ -42,6 +42,7 @@
                         {{"Others"}}
                         @endif
                     </td>
+                    {{-- <td>{{dateFormatting("d-M-y", $customers->dob)}}</td> --}}
                     <td>{{$customers->dob}}</td>
                     <td>
                         <div class="btn-group btn-group-sm fw-bold text-dark" role="group" aria-label="...">

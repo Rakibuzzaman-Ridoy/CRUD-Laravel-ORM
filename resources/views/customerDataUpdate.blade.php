@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @push('title')
-    <title>Customer Insert!</title>   
+    <title>Customer Update!</title>   
 @endpush
 @section('main-section')
     <h1 class="text-center bg-success text-light col-sm-8 offset-2">Update Customer's Info</h1>
@@ -51,7 +51,8 @@
                 @enderror
             </span>
            
-            <x-input type="date" name="dob" placeholder="Birth Info" value="{{$customer->dob}}" label="Date of Birht"/>
+            <x-input type="date" name="dob" placeholder="Birth Info" value="{{$customer->dob}}" label="Date of Birth" required/>
+                <small class="text-success fw-bold">Provide Birth information ^</small>
             <span class="text-danger">
                 @error('address')
                     {{$message}}   

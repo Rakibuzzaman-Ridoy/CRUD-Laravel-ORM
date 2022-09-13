@@ -17,6 +17,7 @@ class customerController extends Controller
     {
         // echo "<pre>";
         // print_r($request->all());
+       
         $request->validate([
             "name"=>"required|string",
             "email"=>"email",
@@ -28,7 +29,8 @@ class customerController extends Controller
             "dob"=>"required|date",
             "gender"=>"required"
            ]);
-
+        //    printResult($request->all());
+        //    die;
            $customer = New Customer;
            $customer->customer_name                     = $request['name'];
            $customer->email                             = $request['email'];

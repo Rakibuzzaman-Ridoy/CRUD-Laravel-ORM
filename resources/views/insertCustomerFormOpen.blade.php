@@ -67,7 +67,7 @@
            
             <x-input type="date" name="dob" placeholder="Birth Info" value="{{old('dob')}}" label="Date of Birht"/>
             <span class="text-danger">
-                @error('address')
+                @error('dob')
                     {{$message}}   
                 @enderror
             </span>
