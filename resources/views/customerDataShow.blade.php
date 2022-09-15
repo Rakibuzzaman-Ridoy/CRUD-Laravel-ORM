@@ -42,8 +42,9 @@
                         {{"Others"}}
                         @endif
                     </td>
-                    {{-- <td>{{dateFormatting("d-M-y", $customers->dob)}}</td> --}}
                     <td>{{$customers->dob}}</td>
+                    {{-- <td>{{$customers->dob}}</td> --}}
+                    {{-- <td>{{timeFormatting("d-M-y",$customers->dob)}}</td> --}} {{--use function from custom helper --}}
                     <td>
                         <div class="btn-group btn-group-sm fw-bold text-dark" role="group" aria-label="...">
                             <button class="btn btn-outline-danger "><a href="{{route('customerDataDelete',['id'=>$customers->customer_id])}}" class="text-decoration-none fw-bold text-dark">Delete</a></button> ||

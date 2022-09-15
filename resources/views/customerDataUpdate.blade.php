@@ -51,8 +51,7 @@
                 @enderror
             </span>
            
-            <x-input type="date" name="dob" placeholder="Birth Info" value="{{$customer->dob}}" label="Date of Birth" required/>
-                <small class="text-success fw-bold">Provide Birth information ^</small>
+            <x-input type="date" name="dob" placeholder="Birth Info" value="{{$customer->dob}}" label="Date of Birth"/>
             <span class="text-danger">
                 @error('address')
                     {{$message}}   
@@ -64,7 +63,7 @@
                 <input type="radio" name="gender" value="M" {{$customer->gender=="M" ? "checked":""}}  />
                 <label>Male</label>
                 <input type="radio" name="gender" value="F"  {{$customer->gender=="F" ? "checked":""}} />
-                <label>Fale</label>
+                <label>Female</label>
                 <input type="radio" name="gender" value="O" {{$customer->gender=="O" ? "checked":""}} />
                 <label>Others</label>
                 <br>

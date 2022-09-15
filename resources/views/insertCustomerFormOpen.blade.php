@@ -65,9 +65,9 @@
                 @enderror
             </span>
            
-            <x-input type="date" name="dob" placeholder="Birth Info" value="{{old('dob')}}" label="Date of Birht"/>
+            <x-input type="date" name="dob" placeholder="Birth Info" value="{{old('dob')}}" label="Date of Birth"/>
             <span class="text-danger">
-                @error('dob')
+                @error('address')
                     {{$message}}   
                 @enderror
             </span>
@@ -77,7 +77,7 @@
                 <input type="radio" name="gender" value="M"  />
                 <label>Male</label>
                 <input type="radio" name="gender" value="F"  />
-                <label>Fale</label>
+                <label>Female</label>
                 <input type="radio" name="gender" value="O" />
                 <label>Others</label>
                 <br>

@@ -11,38 +11,37 @@ class Customer extends Model
     protected $table = "customers";
     protected $primaryKey = "customer_id";
 
-                //Mutator for Customer Name
+                            //Mutators for Customer
     public function setCustomerNameAttribute($value)
     {
         $this->attributes['customer_name'] = ucwords($value);
     }
 
-
-
-                //Mutator for customer's Country 
     public function setCountryAttribute($value)
     {
         $this->attributes['country'] = ucwords($value);
     }
 
-
-                //Mutator for customer's State 
     public function setStateAttribute($value)
     {
         $this->attributes['state'] = ucwords($value);
     }
 
-                  //Accessor for customer's DOB 
+    public function setEmailAttribute($value)
+    {
+        $this->attributes['email'] = ucfirst($value);
+    }
+
+    public function setaddressAttribute($value)
+    {
+        $this->attributes['address'] = ucfirst($value);
+    }
+
+
+
+                //Accessor for Customer's Birth infor field
     public function getDobAttribute($value)
     {
-        return date("d M y",strtotime($value));
+        return date('Y M D', strtotime($value));
     }
-
-
-                  //Accessor for customer's Address 
-    public function getAddressAttribute($value)
-    {
-        return ucfirst($value);
-    }
-    
 }

@@ -1,30 +1,21 @@
-<?php 
-    //echo "hello";
+<?php
+    // echo "hello!";
 
     if(!function_exists('printResult'))
     {
-        function printResult($data)
+        function printResult($result)
         {
             echo "<pre>";
-            print_r($data);
+            print_r($result);
             echo "</pre>";
         }
     }
 
-    // if(!function_exists("dateFormatting"))
-    // {
-    //     function dateFormatting($format, $date)
-    //     {
-    //         $format = date($format, strtotime($date));
-    //         return $format;
-    //     }
-    // }
-
-   if(!function_exists("dateFormatting"))
-   {
-    function dateFormatting($format, $date)
+    if(!function_exists('timeFormatting'))
     {
-        $formatting = date($format, strtotime($date));
-        return $formatting;
+        function timeFormatting($format,$date)
+        {
+            $format = date($format, strtotime($date));
+            return $format;
+        }
     }
-   }

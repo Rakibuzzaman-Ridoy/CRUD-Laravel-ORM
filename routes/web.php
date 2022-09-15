@@ -5,6 +5,7 @@ use App\Http\Controllers\basicController;
 use App\Http\Controllers\singleAction;
 use App\Http\Controllers\resourceController;
 use App\Http\Controllers\customerController;
+use Illuminate\Http\Request;
 
 
 /*
@@ -58,3 +59,24 @@ Route::get('/customerDataDelete/{id}',[customerController::class,'customerDataDe
                             //Update
 Route::get('/customerDataEdit/{id}',[customerController::class,'customerDataEdit'])->name('customerDataEdit');
 Route::post('/customerDataUpdate/{id}',[customerController::class,'customerDataUpdate'])->name('customerDataUpdate');
+
+
+                            //Session
+Route::get('/getSession',function(){
+    $session = session()->all();
+    printResult($session);
+});
+
+Route::get('/setSession',function(Request $request){
+    $request->session()->put('project_name','Laravel CRUD Operation');
+    $request->session()->put('author_name','Rakibuzzaman Ridoy');
+    $request->session()->flash('key','Industy is the key to success');
+
+    return redirect('getSession');
+});
+
+Route::get('/destroySession',function(){
+    session()->forget(['project_name','author_name']);
+    return redirect('getSession');
+
+});
