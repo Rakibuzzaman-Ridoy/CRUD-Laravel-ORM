@@ -1,9 +1,9 @@
 @extends('layouts.main')
 @push('title')
-    <title>Customer DataShow!</title>   
+    <title>Customer Trash!</title>   
 @endpush
 @section('main-section')
-    <h1 class="text-center bg-success text-light col-sm-8 offset-2">Customer Data Table!</h1>
+    <h1 class="text-center bg-success text-light col-sm-8 offset-2">Customer Trashed Data Table!</h1>
     {{-- @php
         echo "<pre>";
             print_r($customer->toArray( ));   
@@ -14,8 +14,11 @@
         <button class="btn btn-outline-primary"><a href="{{route('insertCustomerFormOpen')}}" class="text-decoration-none fw-bold text-dark">Add Customer</a></button>
     </div>
     <div class="btn-group float-end" role="group" aria-label="Basic checkbox toggle button group">
-        <button class="btn btn-outline-danger"><a href="{{route('trash')}}" class="text-decoration-none fw-bold text-dark">Trash List</a></button>
+        <button class="btn btn-outline-success"><a href="{{route('customerDataShow')}}" class="text-decoration-none fw-bold text-dark">Show Customer</a></button>
     </div>
+    {{-- @php
+        printResult($customer->toArray());
+    @endphp --}}
     <div class="container">
         <table class="table table-success table-striped">
             <thead class="text-center ">      
@@ -50,10 +53,9 @@
                     {{-- <td>{{timeFormatting("d-M-y",$customers->dob)}}</td> --}} {{--use function from custom helper --}}
                     <td>
                         <div class="btn-group btn-group-sm fw-bold text-dark" role="group" aria-label="...">
-                            <button class="btn btn-outline-danger "><a href="{{route('customerDataDelete',['id'=>$customers->customer_id])}}" class="text-decoration-none fw-bold text-dark">Trash</a></button>
                             {{-- <button class="btn btn-outline-danger "><a href="{{route('customerDataDelete',['id'=>$customers->customer_id])}}" class="text-decoration-none fw-bold text-dark">Delete</a></button> --}}
-                            <button class="btn btn-outline-primary "><a href="{{route('customerDataEdit',['id'=>$customers->customer_id])}}" class="text-decoration-none fw-bold text-dark">Update</a></button>
-                            {{-- <button class="btn btn-outline-success text-dark"><a href="{{route('trash')}}" class="text-decoration-none fw-bold text-dark">Trash</a></button> --}}
+                            <button class="btn btn-outline-success "><a href="{{route('restore',["id"=>$customers->customer_id])}}" class="text-decoration-none fw-bold text-dark">Restore</a></button>
+                            <button class="btn btn-outline-danger "><a href="{{route('forceDelete',["id"=>$customers->customer_id])}}" class="text-decoration-none fw-bold text-dark">Delete</a></button>
                         </div>
                     </td>
                 </tr>

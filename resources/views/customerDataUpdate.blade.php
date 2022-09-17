@@ -51,7 +51,8 @@
                 @enderror
             </span>
            
-            <x-input type="date" name="dob" placeholder="Birth Info" value="{{$customer->dob}}" label="Date of Birth"/>
+            <x-input type="date" name="dob" placeholder="Birth Info" value="{{$customer->dob}}" label="Date of Birth" required/>
+                <small class="text-success fw-bold">Provide Birth Info Plz ^</small>
             <span class="text-danger">
                 @error('address')
                     {{$message}}   

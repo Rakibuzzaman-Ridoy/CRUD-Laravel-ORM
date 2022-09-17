@@ -52,6 +52,13 @@ class customerController extends Controller
         return view('customerDataShow')->with($data);
     }
 
+    public function trash()
+    {
+        $customer = Customer::onlyTrashed()->get();
+        $data = compact('customer');
+        return view('customerTrash')->with($data);
+    }
+
     public function customerDataDelete($id)
     {
                     //Type 1
@@ -68,6 +75,37 @@ class customerController extends Controller
         else
         {
             return redirect('/customerDataShow');
+        }
+    }
+                        //Restoring Data
+    public function restore($id)
+    {
+        
+        $customer = Customer::withTrashed()->find($id);
+        if(!is_null($customer))
+        {
+            $customer->restore();
+            return redirect('/customerDataShow');
+        }
+        else
+        {
+            return redirect('/customerDataShow');
+        }
+    }
+
+                        //ForceDelete
+    public function forceDelete($id)
+    {
+        $customer = Customer::withTrashed()->find($id);
+
+        if(!is_null($customer))
+        {
+            $customer->forceDelete();
+            return redirect('trash');
+        }
+        else
+        {
+            return redirect('trash');
         }
     }
 

@@ -60,6 +60,11 @@ Route::get('/customerDataDelete/{id}',[customerController::class,'customerDataDe
 Route::get('/customerDataEdit/{id}',[customerController::class,'customerDataEdit'])->name('customerDataEdit');
 Route::post('/customerDataUpdate/{id}',[customerController::class,'customerDataUpdate'])->name('customerDataUpdate');
 
+                            //Soft Deletes
+Route::get('/trash',[customerController::class,'trash'])->name('trash');
+Route::get('/restore/{id}',[customerController::class,'restore'])->name('restore');
+Route::get('/forceDelete/{id}',[customerController::class,'forceDelete'])->name('forceDelete');
+
 
                             //Session
 Route::get('/getSession',function(){
